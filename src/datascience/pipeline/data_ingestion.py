@@ -1,6 +1,8 @@
 from src.datascience.config.configuration import configurationManager
 from src.datascience.components.data_ingestion import dataIngestion
-from src.datascience import logger
+# from src.datascience import logger
+from src.datascience.logger import logger
+
 
 
 

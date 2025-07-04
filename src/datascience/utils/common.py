@@ -1,16 +1,16 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from src.datascience import logger
+from src.datascience.logger import logger
 from ensure import ensure_annotations
 from box import ConfigBox  # Makes config.yaml access easy (e.g., config.data_ingestion.source_url)
 from pathlib import Path
 
 @ensure_annotations
-def read_yaml(path_to_yaml: str) -> ConfigBox:
+def read_yaml(path_to_yaml) -> ConfigBox:
     """Reads YAML file and returns ConfigBox (e.g., dict-like object with dot notation)"""
     try:
-        with open(path_to_yaml) as yaml_file:
+        with open(str(path_to_yaml)) as yaml_file:
             content = yaml.safe_load(yaml_file)
             logger.info(f"YAML file: {path_to_yaml} loaded successfully.")
             return ConfigBox(content)

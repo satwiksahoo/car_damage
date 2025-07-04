@@ -1,7 +1,9 @@
 import os
 import urllib.request as request
 import zipfile
-from src.datascience import logger
+# from src.datascience import logger
+from src.datascience.logger import logger
+
 from src.datascience.entity.config_entity import dataIngestionconfig
 from src.datascience.utils.common import get_size, create_directories
 from pathlib import Path
@@ -29,7 +31,7 @@ class dataIngestion:
 
 
 
-    def exctract_zip_file(self):
+    def extract_zip_file(self):
         unzip_path = self.config.unzip_dir
         os.makedirs(unzip_path, exist_ok=True)
 

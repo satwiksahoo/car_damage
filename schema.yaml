@@ -1,0 +1,16 @@
+columns:
+  name: object
+  year: int
+  selling_price: int
+  km_driven: int
+  fuel: object
+  seller_type: object
+  transmission: object
+  owner: object
+  mileage: object
+  engine: object
+  max_power: object
+  torque: object
+  seats: float
+
+target_column: selling_price
