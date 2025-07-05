@@ -1,5 +1,5 @@
 from src.datascience.utils.common import read_yaml ,create_directories
-from src.datascience.entity.config_entity import (dataIngestionconfig , datavalidationconfig)
+from src.datascience.entity.config_entity import (dataIngestionconfig , datavalidationconfig , datatransformationconfig , modeltrainerconfig  , modelevaluationconfig)
 from src.datascience.constants import *
 import os
 
@@ -50,7 +50,72 @@ class configurationManager:
 
 
         )
-
     
 
+    def get_data_transformation_config(self) -> datatransformationconfig:
+        config = self.config.data_transformation
+
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = datatransformationconfig(
+
+            root_dir = config.root_dir,
+            transformed_train_path = config.transformed_train_path,
+            transformed_test_path  = config.transformed_test_path,
+            data_path=config.data_path
+
+        
+        )
+
+
+        return data_transformation_config
+    
+
+
+    def get_model_trainer_config(self) -> modeltrainerconfig:
+
+       config = self.config.model_trainer
+       params = self.params
+
+
+       create_directories([config.root_dir])
+
+       model_trainer_config = modeltrainerconfig(
+
+
+         root_dir = config.root_dir,
+         train_data_path = config.train_data_path,
+         test_data_path = config.test_data_path,
+         model_path = config.model_path,
+         target_column = config.target_column,
+
+
+
+
+         )
+
+
+       return model_trainer_config
+    
+
+
+    def get_model_evaluation_config(self) -> modelevaluationconfig:
+
+        config = self.config.model_evaluation
+
+        model_evaluation_config = modelevaluationconfig(
+
+            test_data_path = config.test_data_path,
+            train_data_path=config.train_data_path,
+            model_path = config.model_path,
+            target_column = config.target_column,
+
+        )
+
+
+        return model_evaluation_config
+
+
+    
 
