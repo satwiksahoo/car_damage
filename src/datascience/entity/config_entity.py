@@ -35,6 +35,7 @@ class modeltrainerconfig:
      test_data_path : Path
      model_path : Path
      target_column : str
+     model_columns : Path
 
 @dataclass
 
@@ -43,3 +44,4 @@ class modelevaluationconfig:
     train_data_path : Path
     model_path : Path
     target_column : str
+    mlflow_uri : str

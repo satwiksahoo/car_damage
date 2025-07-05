@@ -36,7 +36,11 @@ class Modeltrainer:
          rf_model = RandomForestRegressor()
          rf_model.fit(x_train_data , y_train_data)
 
+
          joblib.dump(rf_model , self.config.model_path)
+
+         model_columns = x_train_data.columns.tolist()
+         joblib.dump(model_columns, self.config.model_columns)
 
 
          prediction = rf_model.predict(x_test_data)

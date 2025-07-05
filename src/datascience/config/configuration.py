@@ -89,6 +89,7 @@ class configurationManager:
          test_data_path = config.test_data_path,
          model_path = config.model_path,
          target_column = config.target_column,
+         model_columns = config.model_columns
 
 
 
@@ -110,6 +111,7 @@ class configurationManager:
             train_data_path=config.train_data_path,
             model_path = config.model_path,
             target_column = config.target_column,
+            mlflow_uri= 'https://dagshub.com/satwiksahoojob/car_damage.mlflow'
 
         )
 
