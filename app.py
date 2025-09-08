@@ -55,4 +55,5 @@ def index():
     return render_template('index.html', prediction=prediction , car_names = car_names ) 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host="0.0.0.0", port=8080)
